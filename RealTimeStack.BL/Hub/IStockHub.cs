@@ -9,6 +9,6 @@ namespace RealTimeStack.BL.Hub
 {
     public interface IStockHub
     {
-        Task SendStocks(string stocks);
+        Task SendOffersToUser(string stocks);
     }
 }

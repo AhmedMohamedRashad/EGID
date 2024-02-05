@@ -12,6 +12,7 @@ namespace Demo.BL.Interface
     {
         Task<IEnumerable<Order>> GetAll(Expression<Func<Order,bool>> filter = null); 
         Task Create(Order obj);
-        
+        Task<IEnumerable<OrderType>> GetOrderTypes();
+
     }
 }

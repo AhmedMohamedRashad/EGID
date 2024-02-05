@@ -32,5 +32,10 @@ namespace Demo.BL.Repository
             else
                 return await db.Order.Include("OrderType").Include("Stock").Where(filter).ToListAsync();
         }
+        
+        public async Task<IEnumerable<OrderType>> GetOrderTypes()
+        {
+                return await db.OrderType.ToListAsync();
+        }
     }
 }

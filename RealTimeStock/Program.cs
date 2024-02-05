@@ -47,14 +47,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-    endpoints.MapHub<StockHub>("/stocks");
-});
+
 app.UseAuthorization();
 app.UseCors("CorsPolicy");
 
 app.MapControllers();
+app.MapHub<StockHub>("/stocks");
 
 app.Run();

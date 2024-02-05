@@ -12,7 +12,7 @@ namespace RealTimeStack.BL.Hub
     {
         public async Task SendStocks(string stockUpdated)
         {
-            await Clients.All.SendStocks(stockUpdated);
+            await Clients.All.SendOffersToUser(stockUpdated);
         }
 
     }

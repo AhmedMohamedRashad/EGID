@@ -38,7 +38,7 @@ namespace Demo.BL.Repository
             });
             db.Entry(obj).State = EntityState.Modified;
             await db.SaveChangesAsync();
-            await stockHub.Clients.All.SendStocks("Stock updated");
+            await stockHub.Clients.All.SendOffersToUser("Stock updated");
             
         }
     }

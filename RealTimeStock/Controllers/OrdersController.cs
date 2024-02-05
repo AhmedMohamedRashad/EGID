@@ -32,7 +32,7 @@ namespace RealTimeStock.Controllers
                 {
                     Code = "201",
                     Status = "Created",
-                    Message = "Data Saved",
+                    Message = "success",
                     Data = "Created Successfully"
                 });
             }
@@ -79,6 +79,37 @@ namespace RealTimeStock.Controllers
 
 
         }
+        [HttpGet]
+        [Route("GetOrderTypes")]
+        public async Task<IActionResult> GetOrderTypes()
+        {
+            try
+            {
+                var data = await orderRep.GetOrderTypes();
+                var result = mapper.Map<IEnumerable<OrderTypeVM>>(data);
+                return Ok(new ApiResponse<IEnumerable<OrderTypeVM>>
+                {
+                    Code = "200",
+                    Message = "Data found",
+                    Status = "Succeed",
+                    Data = result
+                });
+            }
+            catch (Exception ex)
+            {
+
+                return NotFound(new ApiResponse<string>
+                {
+                    Code = "404",
+                    Message = "Data Not found",
+                    Status = "Not Found",
+                    Data = ex.Message
+                });
+            }
+
+
+        }
+
 
 
     }
